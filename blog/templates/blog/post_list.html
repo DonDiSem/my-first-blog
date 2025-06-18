@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta charset="UTF-8" />
     <title>привет!</title>
   </head>
   <body>
@@ -7,15 +8,18 @@
     <div>
       <h1><a href="/">здарова Kolian</a></h1>
     </div>
+    {% for post in posts %}
     <div>
-      <p>погоди</p>
-      <h2><a href="">ну здарова Kolian</a></h2>
-      <p>&copy; все права защищены</p>
+      <p>погоди {{ post.published_date }}</p>
+      <h2><a href="">ну здарова Kolian {{ post.title }}</a></h2>
+      <p>&copy; все права защищены {{ post.text|linebreaksbr }}</p>
     </div>
+    {% empty %}
     <div>
       <p>ну погоди</p>
       <h2><a href="">Kolian здарова!</a></h2>
       <p>и этого параграфа права защищены &copy;</p>
     </div>
+    {% endfor %}
   </body>
 </html>
